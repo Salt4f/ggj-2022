@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 200
   MaxArmor: 500
-  MovementSpeed: 2
+  MovementSpeed: 5
   AttackSpeed: 1
   Attack: 3
