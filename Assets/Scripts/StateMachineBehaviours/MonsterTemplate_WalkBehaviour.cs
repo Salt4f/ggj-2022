@@ -1,48 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class TestMonster_WalkBehaviour : StateMachineBehaviour
+public class MonsterTemplate_WalkBehaviour : StateMachineBehaviour
 {
-    private const float walkVelocity = 0.2f;
-    private Vector3 targetPosition;
+    MonsterBeing monster;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        targetPosition = animator.transform.position + Quaternion.AngleAxis(360 * Utils.getRandomFloat(0.0f, 1.0f), animator.transform.up) * animator.transform.forward * Utils.getRandomFloat(2.0f, 8.0f);
-    
-        animator.SetBool("detected", false);
-        animator.SetBool("inRange", false);
+        monster = animator.GetComponent<MonsterBeing>();
+        Vector3 target = Utils.getNextPosition(animator.transform, Utils.getRandomFloat(monster.monsterStats.MinWanderDistance, monster.monsterStats.MaxWanderDistance));
+
+        monster.agent.isStopped = false;
+        monster.agent.speed = monster.stats.MovementSpeed * 0.33f;
+        monster.agent.SetDestination(target);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(Vector3.Distance(animator.transform.position, Utils.getPlayerPos()) < 10.0f)
-        {
-            animator.SetBool("detected", true);
-            if(Vector3.Distance(animator.transform.position, Utils.getPlayerPos()) < 1.0f)
-            {
-                animator.SetBool("inRange", true);
-            }
-            return;
-        }
+        //Vector3 direction = (target - animator.transform.position).normalized;
+        //animator.transform.rotation = Quaternion.LookRotation(direction, animator.transform.up);
 
-
-        Vector3 direction = (targetPosition - animator.transform.position).normalized;
+        Vector3 direction = (monster.agent.destination - animator.transform.position).normalized;
         animator.transform.rotation = Quaternion.LookRotation(direction, animator.transform.up);
 
-        if(Vector3.Distance(animator.transform.position, targetPosition) < 0.05f)
+        if(monster.agent.remainingDistance < 0.01f)
         {
-            animator.SetBool("wanderToggle", false);
+            animator.SetBool("isWalking", false);
         }
-        else
-        {
-            animator.transform.position = Vector3.MoveTowards(animator.transform.position, targetPosition, Time.fixedDeltaTime * walkVelocity);
-        }
-
-
 
         /*
         if(Quaternion.Angle(animator.transform.rotation, rotation) < 0.01f)

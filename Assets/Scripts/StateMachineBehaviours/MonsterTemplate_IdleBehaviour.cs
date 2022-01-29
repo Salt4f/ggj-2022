@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestMonster_IdleBehaviour : StateMachineBehaviour
+public class MonsterTemplate_IdleBehaviour : StateMachineBehaviour
 {
     float idleSeconds, currentSeconds;
 
@@ -13,27 +13,18 @@ public class TestMonster_IdleBehaviour : StateMachineBehaviour
         idleSeconds = Utils.getRandomFloat(2.0f, 8.0f);
         currentSeconds = 0.0f;
 
-        animator.SetBool("detected", false);
-        animator.SetBool("inRange", false);
+        MonsterBeing monster = animator.GetComponent<MonsterBeing>();
+        monster.agent.SetDestination(animator.transform.position);
+        monster.agent.isStopped = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(Vector3.Distance(animator.transform.position, Utils.getPlayerPos()) < 10.0f)
-        {
-            animator.SetBool("detected", true);
-            if(Vector3.Distance(animator.transform.position, Utils.getPlayerPos()) < 1.0f)
-            {
-                animator.SetBool("inRange", true);
-            }
-            return;
-        }
-
         currentSeconds += Time.fixedDeltaTime;
         if(currentSeconds >= idleSeconds)
         {
-            animator.SetBool("wanderToggle", true);
+            animator.SetBool("isWalking", true);
         }
     }
 

@@ -1,38 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class TestMonster_RunBehaviour : StateMachineBehaviour
+public class MonsterTemplate_RunBehaviour : StateMachineBehaviour
 {
-    private const float runVelocity = 0.6f;
+    MonsterBeing monster;
+    private Transform player;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("detected", true);
-        animator.SetBool("inRange", false);
+        monster = animator.GetComponent<MonsterBeing>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        monster.agent.isStopped = false;
+        monster.agent.speed = monster.stats.MovementSpeed;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(Vector3.Distance(animator.transform.position, Utils.getPlayerPos()) > 10.0f)
+        if(player.transform.position != monster.agent.destination)
         {
-            animator.SetBool("detected", false);
-            return;
+            monster.agent.SetDestination(player.transform.position);
         }
 
-        if(Vector3.Distance(animator.transform.position, Utils.getPlayerPos()) < 1.0f)
-        {
-            animator.SetBool("inRange", true);
-            return;
-        }
-
-        Vector3 direction = (Utils.getPlayerPos() - animator.transform.position).normalized;
+        Vector3 direction = (player.position - animator.transform.position).normalized;
         animator.transform.rotation = Quaternion.LookRotation(direction, animator.transform.up);
 
         
-        animator.transform.position = Vector3.MoveTowards(animator.transform.position, Utils.getPlayerPos(), Time.fixedDeltaTime * runVelocity);
+        //animator.transform.position = Vector3.MoveTowards(animator.transform.position, player.position, Time.fixedDeltaTime * monster.stats.MovementSpeed);
 
 
         /*

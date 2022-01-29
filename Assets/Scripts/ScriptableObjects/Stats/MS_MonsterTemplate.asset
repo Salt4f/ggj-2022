@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddaa9372d4026773bdd37c15474953f, type: 3}
+  m_Name: MS_MonsterTemplate
+  m_EditorClassIdentifier: 
+  FieldOfView: 70
+  DistanceOfView: 20
+  DistanceOfAttack: 2
+  MinWanderDistance: 2
+  MaxWanderDistance: 10
