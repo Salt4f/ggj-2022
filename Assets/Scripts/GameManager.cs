@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public PlayerManager playerManager;
+    public UIManager uiManager;
     public Config config;
 
     void Awake()
