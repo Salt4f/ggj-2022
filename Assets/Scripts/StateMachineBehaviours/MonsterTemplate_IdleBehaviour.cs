@@ -10,7 +10,7 @@ public class MonsterTemplate_IdleBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        idleSeconds = Utils.getRandomFloat(2.0f, 8.0f);
+        idleSeconds = Utils.GetRandomFloat(2.0f, 8.0f);
         currentSeconds = 0.0f;
 
         MonsterBeing monster = animator.GetComponent<MonsterBeing>();

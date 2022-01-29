@@ -11,7 +11,7 @@ public class MonsterTemplate_WalkBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         monster = animator.GetComponent<MonsterBeing>();
-        Vector3 target = Utils.getNextPosition(animator.transform, Utils.getRandomFloat(monster.monsterStats.MinWanderDistance, monster.monsterStats.MaxWanderDistance));
+        Vector3 target = animator.GetComponentInParent<Battlefield>().GetNextPosition();
 
         monster.agent.speed = monster.stats.MovementSpeed * 0.33f;
         monster.agent.SetDestination(target);

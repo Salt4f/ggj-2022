@@ -33,4 +33,14 @@ public class PlayerManager : MonoBehaviour
             samurai.gameObject.SetActive(true);
         }
     }
+
+    public void OnTriggerEnter(Collider collider)
+    {
+        if(collider.isTrigger)
+        {
+            float damage = collider.gameObject.GetComponentInParent<MonsterBeing>().currentAttack;
+
+            Debug.Log("Player receives " + damage + " damage");
+        }
+    }
 }

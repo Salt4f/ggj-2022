@@ -10,7 +10,9 @@ public class MonsterTemplate_AttackBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         monster = animator.GetComponent<MonsterBeing>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameManager.instance.playerManager.activeForm.transform;
+
+        //animator.GetComponentInChildren<BoxCollider>().enabled = true;
 
         animator.SetFloat("speed", monster.stats.AttackSpeed / animator.GetCurrentAnimatorClipInfo(layerIndex)[0].clip.length);
 
@@ -20,13 +22,15 @@ public class MonsterTemplate_AttackBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Vector3 direction = (player.position - animator.transform.position).normalized;
+        Vector3 direction = (player.position.XZPlane() - animator.transform.position.XZPlane()).normalized;
         animator.transform.rotation = Quaternion.LookRotation(direction, animator.transform.up);
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetFloat("speed", 1.0f);
+
+        //animator.GetComponentInChildren<BoxCollider>().enabled = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

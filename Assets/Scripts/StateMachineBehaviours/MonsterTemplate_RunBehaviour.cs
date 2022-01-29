@@ -12,7 +12,7 @@ public class MonsterTemplate_RunBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         monster = animator.GetComponent<MonsterBeing>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameManager.instance.playerManager.activeForm.transform;
 
         monster.agent.isStopped = false;
         monster.agent.speed = monster.stats.MovementSpeed;
