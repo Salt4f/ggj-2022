@@ -15,7 +15,7 @@ public class PlayerManager : MonoBehaviour
     {
         GameManager.instance.playerManager = this;
         movement = GetComponent<PlayerMovement>();
-        activeForm = samurai;
+        activeForm = ninja;
     }
 
     public void ChangeForm()

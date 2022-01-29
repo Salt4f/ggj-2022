@@ -15,5 +15,5 @@ MonoBehaviour:
   MaxHealth: 80
   MaxArmor: 100
   MovementSpeed: 7
-  AttackSpeed: 1.5
+  AttackSpeed: 0.6
   Attack: 2

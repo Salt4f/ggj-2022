@@ -31,7 +31,7 @@ public abstract class ActiveAbility : MonoBehaviour
 
     public void OnInput(InputAction.CallbackContext context)
     {
-        if (isActive || isInCooldown) return;
+        if (isActive || isInCooldown || !gameObject.activeSelf) return;
         if (context.performed) ApplyEffect();
     }
 
