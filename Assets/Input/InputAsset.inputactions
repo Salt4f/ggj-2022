@@ -24,18 +24,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "GodMode",
+                    "name": "Dash",
                     "type": "Button",
-                    "id": "c150a6cf-bd60-4fa1-b63b-c7a815318d1a",
+                    "id": "84b205f9-c4b7-4d91-89e5-14e0c6a2ccea",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Run",
+                    "name": "GodMode",
                     "type": "Button",
-                    "id": "84b205f9-c4b7-4d91-89e5-14e0c6a2ccea",
+                    "id": "c150a6cf-bd60-4fa1-b63b-c7a815318d1a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -254,28 +254,6 @@
                 },
                 {
                     "name": "",
-                    "id": "214b6466-b4b7-4424-8aae-4f695a039572",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Run",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2fe3d05e-e87a-4eb2-b565-224537376901",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Run",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "20886e34-bb4f-4c28-a7f0-3a27703f2da1",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
@@ -293,6 +271,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "214b6466-b4b7-4424-8aae-4f695a039572",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2fe3d05e-e87a-4eb2-b565-224537376901",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

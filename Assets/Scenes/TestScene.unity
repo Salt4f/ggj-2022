@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22038
+  m_Name: pb_Mesh22044
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -287,6 +287,71 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &404018999
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1890540750}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.205
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.741
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_Name
+      value: katana
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.572
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.696
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
 --- !u!1 &671259450
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,9 +955,17 @@ MonoBehaviour:
   assetGuid: 
   m_Mesh: {fileID: 710637633}
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 09000000
+  m_SelectedEdges:
+  - a: 36
+    b: 37
+  - a: 38
+    b: 36
+  - a: 37
+    b: 39
+  - a: 39
+    b: 38
+  m_SelectedVertices: 24000000250000002600000027000000
 --- !u!4 &671259455
 Transform:
   m_ObjectHideFlags: 0
@@ -1226,7 +1299,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22026
+  m_Name: pb_Mesh22032
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1493,7 +1566,6 @@ GameObject:
   - component: {fileID: 1155654467}
   - component: {fileID: 1155654468}
   - component: {fileID: 1155654469}
-  - component: {fileID: 1155654470}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Player
@@ -1548,6 +1620,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   samurai: {fileID: 1890540754}
   ninja: {fileID: 1326790087}
+  activeForm: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!54 &1155654468
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1557,12 +1631,12 @@ Rigidbody:
   m_GameObject: {fileID: 1155654464}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 3
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &1155654469
 MonoBehaviour:
@@ -1577,24 +1651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camTarget: {fileID: 814850885}
---- !u!143 &1155654470
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155654464}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  moveInput: {x: 0, y: 0}
 --- !u!1 &1326790082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,6 +1665,7 @@ GameObject:
   - component: {fileID: 1326790085}
   - component: {fileID: 1326790084}
   - component: {fileID: 1326790087}
+  - component: {fileID: 1326790088}
   m_Layer: 0
   m_Name: Ninja
   m_TagString: Player
@@ -1708,6 +1766,21 @@ MonoBehaviour:
   currentHealth: 0
   currentArmor: 0
   currentAttack: 0
+--- !u!114 &1326790088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326790082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8449f072b0f8d414daff6b17aadfb663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 2
+  triggerName: 
+  dashSpeed: 15
 --- !u!1 &1473934544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,7 +1844,19 @@ MonoBehaviour:
     m_ActionId: c150a6cf-bd60-4fa1-b63b-c7a815318d1a
     m_ActionName: Player/GodMode[/Keyboard/g]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1890540755}
+        m_TargetAssemblyTypeName: ActiveAbility, Assembly-CSharp
+        m_MethodName: OnInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 84b205f9-c4b7-4d91-89e5-14e0c6a2ccea
     m_ActionName: Player/Run[/Keyboard/enter]
   - m_PersistentCalls:
@@ -2095,6 +2180,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1837638868 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+  m_PrefabInstance: {fileID: 404018999}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1890540749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,6 +2198,8 @@ GameObject:
   - component: {fileID: 1890540752}
   - component: {fileID: 1890540751}
   - component: {fileID: 1890540754}
+  - component: {fileID: 1890540755}
+  - component: {fileID: 1890540756}
   m_Layer: 0
   m_Name: Samurai
   m_TagString: Player
@@ -2125,7 +2217,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1837638868}
   m_Father: {fileID: 1155654466}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2208,6 +2301,35 @@ MonoBehaviour:
   currentHealth: 0
   currentArmor: 0
   currentAttack: 0
+--- !u!114 &1890540755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890540749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8449f072b0f8d414daff6b17aadfb663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 2
+  triggerName: 
+  dashSpeed: 15
+--- !u!114 &1890540756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890540749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3405a6b0f711ce640abd18e0d32f25b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 1
+  triggerName: attack
 --- !u!1 &1973188286
 GameObject:
   m_ObjectHideFlags: 0

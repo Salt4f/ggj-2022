@@ -10,17 +10,19 @@ public class Being : MonoBehaviour
     public float currentArmor;
     public float currentAttack;
 
-    // Start is called before the first frame update
+    Animator anim;
+
     void Awake()
     {
         currentAttack = stats.Attack;
         currentHealth = stats.MaxHealth;
         currentArmor = stats.MaxArmor;
+
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetAnimatorTrigger(string triggerName)
     {
-        
+        anim.SetTrigger(triggerName);
     }
 }

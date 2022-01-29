@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     PlayerManager playerManager;
 
     Rigidbody rb;
-    Vector2 moveInput;
+    public Vector2 moveInput;
     Vector2 camInput;
 
     void Awake()
@@ -53,8 +53,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var dir = (camTarget.forward * moveInput.y + camTarget.right * moveInput.x); dir.y = 0;
-        rb.position += playerManager.samurai.stats.MovementSpeed * Time.fixedDeltaTime * dir.normalized;
+        var dir = (camTarget.forward * moveInput.y + camTarget.right * moveInput.x); dir.y = 0; dir.Normalize();
+        if (dir.magnitude == 0) return;
+
+        rb.position += playerManager.samurai.stats.MovementSpeed * Time.fixedDeltaTime * dir;
+        playerManager.activeForm.transform.rotation = Quaternion.LookRotation(dir);
     }
 
 }

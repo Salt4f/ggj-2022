@@ -46,18 +46,18 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""GodMode"",
+                    ""name"": ""Dash"",
                     ""type"": ""Button"",
-                    ""id"": ""c150a6cf-bd60-4fa1-b63b-c7a815318d1a"",
+                    ""id"": ""84b205f9-c4b7-4d91-89e5-14e0c6a2ccea"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Run"",
+                    ""name"": ""GodMode"",
                     ""type"": ""Button"",
-                    ""id"": ""84b205f9-c4b7-4d91-89e5-14e0c6a2ccea"",
+                    ""id"": ""c150a6cf-bd60-4fa1-b63b-c7a815318d1a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -276,28 +276,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""214b6466-b4b7-4424-8aae-4f695a039572"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Run"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2fe3d05e-e87a-4eb2-b565-224537376901"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Run"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""20886e34-bb4f-4c28-a7f0-3a27703f2da1"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
@@ -315,6 +293,28 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""214b6466-b4b7-4424-8aae-4f695a039572"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2fe3d05e-e87a-4eb2-b565-224537376901"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -904,8 +904,8 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
+        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_GodMode = m_Player.FindAction("GodMode", throwIfNotFound: true);
-        m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -979,16 +979,16 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Camera;
+    private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_GodMode;
-    private readonly InputAction m_Player_Run;
     public struct PlayerActions
     {
         private @InputAsset m_Wrapper;
         public PlayerActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
+        public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @GodMode => m_Wrapper.m_Player_GodMode;
-        public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1004,12 +1004,12 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Camera.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
                 @Camera.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
                 @Camera.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
+                @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @GodMode.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGodMode;
                 @GodMode.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGodMode;
                 @GodMode.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGodMode;
-                @Run.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
-                @Run.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
-                @Run.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1020,12 +1020,12 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Camera.started += instance.OnCamera;
                 @Camera.performed += instance.OnCamera;
                 @Camera.canceled += instance.OnCamera;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
                 @GodMode.started += instance.OnGodMode;
                 @GodMode.performed += instance.OnGodMode;
                 @GodMode.canceled += instance.OnGodMode;
-                @Run.started += instance.OnRun;
-                @Run.performed += instance.OnRun;
-                @Run.canceled += instance.OnRun;
             }
         }
     }
@@ -1184,8 +1184,8 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
         void OnGodMode(InputAction.CallbackContext context);
-        void OnRun(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
