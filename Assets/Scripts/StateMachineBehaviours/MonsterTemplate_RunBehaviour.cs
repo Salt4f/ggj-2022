@@ -25,27 +25,6 @@ public class MonsterTemplate_RunBehaviour : StateMachineBehaviour
         {
             monster.agent.SetDestination(player.transform.position);
         }
-
-        Vector3 direction = (player.position - animator.transform.position).normalized;
-        animator.transform.rotation = Quaternion.LookRotation(direction, animator.transform.up);
-
-        
-        //animator.transform.position = Vector3.MoveTowards(animator.transform.position, player.position, Time.fixedDeltaTime * monster.stats.MovementSpeed);
-
-
-        /*
-        Vector3 direction = (Utils.getPlayerPos() - animator.transform.position).normalized;
-        Quaternion rotation = Quaternion.LookRotation(direction);
-
-        if(Quaternion.Angle(animator.transform.rotation, rotation) < 0.1f)
-        {
-            animator.transform.position = Vector3.MoveTowards(animator.transform.position, Utils.getPlayerPos(), Time.fixedDeltaTime * 0.8f);
-        }
-        else
-        {
-            animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, rotation, Time.fixedDeltaTime * 1.5f);
-        }
-        */
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

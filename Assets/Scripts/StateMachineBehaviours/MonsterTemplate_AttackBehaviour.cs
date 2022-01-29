@@ -14,7 +14,6 @@ public class MonsterTemplate_AttackBehaviour : StateMachineBehaviour
 
         animator.SetFloat("speed", monster.stats.AttackSpeed / animator.GetCurrentAnimatorClipInfo(layerIndex)[0].clip.length);
 
-        monster.agent.SetDestination(animator.transform.position);
         monster.agent.isStopped = true;
     }
 
@@ -23,15 +22,6 @@ public class MonsterTemplate_AttackBehaviour : StateMachineBehaviour
     {
         Vector3 direction = (player.position - animator.transform.position).normalized;
         animator.transform.rotation = Quaternion.LookRotation(direction, animator.transform.up);
-
-        /*
-        Quaternion rotation = Quaternion.LookRotation(direction);
-
-        if(Quaternion.Angle(animator.transform.rotation, rotation) > 0.01f)
-        {
-            animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, rotation, Time.fixedDeltaTime * 2.0f);
-        }
-        */
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

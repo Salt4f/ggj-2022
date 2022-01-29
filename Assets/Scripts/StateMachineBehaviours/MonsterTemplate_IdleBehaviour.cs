@@ -14,14 +14,13 @@ public class MonsterTemplate_IdleBehaviour : StateMachineBehaviour
         currentSeconds = 0.0f;
 
         MonsterBeing monster = animator.GetComponent<MonsterBeing>();
-        monster.agent.SetDestination(animator.transform.position);
         monster.agent.isStopped = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        currentSeconds += Time.fixedDeltaTime;
+        currentSeconds += Time.deltaTime;
         if(currentSeconds >= idleSeconds)
         {
             animator.SetBool("isWalking", true);
