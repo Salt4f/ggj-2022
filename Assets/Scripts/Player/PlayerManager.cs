@@ -17,4 +17,20 @@ public class PlayerManager : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         activeForm = samurai;
     }
+
+    public void ChangeForm()
+    {
+        //Trigger particle system
+        if (activeForm == samurai)
+        {
+            activeForm = ninja;
+            ninja.gameObject.SetActive(true);
+            samurai.gameObject.SetActive(false);
+        } else
+        {
+            activeForm = samurai;
+            ninja.gameObject.SetActive(false);
+            samurai.gameObject.SetActive(true);
+        }
+    }
 }

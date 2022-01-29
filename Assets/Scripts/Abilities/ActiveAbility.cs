@@ -17,6 +17,7 @@ public abstract class ActiveAbility : MonoBehaviour
     private void Start()
     {
         playerManager = GameManager.instance.playerManager;
+        Initialize();
     }
 
     private void Update()
@@ -34,6 +35,7 @@ public abstract class ActiveAbility : MonoBehaviour
         if (context.performed) ApplyEffect();
     }
 
+    protected abstract void Initialize();
     public abstract void ApplyEffect();
 
     public void StartCooldown()

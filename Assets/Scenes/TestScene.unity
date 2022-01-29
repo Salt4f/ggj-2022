@@ -300,7 +300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.535
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
       propertyPath: m_LocalPosition.y
@@ -308,7 +308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.741
+      value: -0.069
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
       propertyPath: m_LocalRotation.w
@@ -344,11 +344,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.572
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.696
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
@@ -1915,6 +1923,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0a993a39-4f30-4743-8f2d-28b33ab1f30a
     m_ActionName: Player/Camera[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1890540756}
+        m_TargetAssemblyTypeName: ActiveAbility, Assembly-CSharp
+        m_MethodName: OnInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f56ff99b-06a7-4311-9900-d5abb03380f3
+    m_ActionName: Player/Attack[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2180,11 +2204,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1837638867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
+  m_PrefabInstance: {fileID: 404018999}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1837638868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
   m_PrefabInstance: {fileID: 404018999}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1837638869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837638867}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.37158012, y: 1.3482287, z: 0.233011}
+  m_Center: {x: 0.08452177, y: 2.3058858, z: 0.007778764}
 --- !u!1 &1890540749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2200,6 +2242,7 @@ GameObject:
   - component: {fileID: 1890540754}
   - component: {fileID: 1890540755}
   - component: {fileID: 1890540756}
+  - component: {fileID: 1890540757}
   m_Layer: 0
   m_Name: Samurai
   m_TagString: Player
@@ -2330,6 +2373,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 1
   triggerName: attack
+--- !u!95 &1890540757
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890540749}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d9ce07fcdcaa5a4b8b8e56a5140d6bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1973188286
 GameObject:
   m_ObjectHideFlags: 0

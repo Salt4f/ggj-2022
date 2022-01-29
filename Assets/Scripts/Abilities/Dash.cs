@@ -6,6 +6,8 @@ public class Dash : ActiveAbility
 {
     public float dashSpeed = 2f;
 
+    protected override void Initialize() { }
+
     public override void ApplyEffect()
     {
         isActive = true;
