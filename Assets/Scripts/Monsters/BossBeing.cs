@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class BossBeing : MonsterBeing
 {
     public List<float> stages;
-
     public List<Stats> statsPerStage;
     public List<MonsterStats> monsterStatsPerStage;
 
@@ -20,7 +19,7 @@ public class BossBeing : MonsterBeing
         animator.SetInteger("stage", currentStage);
     }
 
-    public override void OnDamaged(float damage)
+    public override void OnDamaged(int damage)
     {
         Debug.Log("Boss receives " + damage + " damage");
 

@@ -31,7 +31,7 @@ public class MonsterBeing : Being
 
     }
 
-    public virtual void OnDamaged(float damage)
+    public virtual void OnDamaged(int damage)
     {
         Debug.Log("Monster receives " + damage + " damage");
 
@@ -51,7 +51,7 @@ public class MonsterBeing : Being
     {
         if(collider.isTrigger)
         {
-            float damage = playerManager.activeForm.currentAttack;
+            int damage = playerManager.activeForm.currentAttack;
             OnDamaged(damage);            
         }
     }
