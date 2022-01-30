@@ -32,7 +32,7 @@ public class Battlefield : MonoBehaviour
             int k = 0;
             while(distribution[k] < num) k++;
             Vector2 randPoint = UnityEngine.Random.insideUnitCircle;
-            GameObject obj = Instantiate(monsterCatalog[k], transform.position + new Vector3(randPoint.x * radius, 2.0f, randPoint.y * radius), Quaternion.Euler(0, Utils.GetRandomFloat(0, 360), 0), transform);
+            GameObject obj = Instantiate(monsterCatalog[k], transform.position + new Vector3(randPoint.x * radius, 1.0f, randPoint.y * radius), Quaternion.Euler(0, Utils.GetRandomFloat(0, 360), 0), transform);
             monsters.Add(obj);
         }
     }
@@ -52,16 +52,5 @@ public class Battlefield : MonoBehaviour
     {
         Vector2 randPoint = UnityEngine.Random.insideUnitCircle;
         return transform.position + new Vector3(randPoint.x * radius, 0.0f, randPoint.y * radius);
-
-        /*
-        float nextAngle = Utils.GetRandomFloat(10.0f, 40.0f);
-        float front = Mathf.Acos((Mathf.PI / 180) * nextAngle);
-        float side = Mathf.Asin((Mathf.PI / 180) * nextAngle);
-        float x = Utils.GetRandomFloat(0, 1) > 0.5f ? 1.0f : -1.0f;
-
-        Vector3 nextDirection = (currentTransform.forward * front + x * currentTransform.right * side).normalized;
-
-        return currentTransform.position + nextDirection * distance;
-        */
     }
 }

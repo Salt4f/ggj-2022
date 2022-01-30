@@ -10,4 +10,5 @@ public class MonsterStats : ScriptableObject
     public float DistanceOfAttack;
     public float MinWanderDistance;
     public float MaxWanderDistance;
+    public bool HasDamageReaction;
 }

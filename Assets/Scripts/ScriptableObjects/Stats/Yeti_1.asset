@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 569a5256fe45edd4689a68f514a76f37, type: 3}
-  m_Name: Ninja
+  m_Name: Yeti_1
   m_EditorClassIdentifier: 
-  MaxHealth: 80
-  MaxArmor: 100
-  MovementSpeed: 7
-  AttackSpeed: 0.6
-  Attack: 30
+  MaxHealth: 100
+  MaxArmor: 0
+  MovementSpeed: 3
+  AttackSpeed: 4
+  Attack: 40

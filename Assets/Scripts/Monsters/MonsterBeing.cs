@@ -7,7 +7,7 @@ public class MonsterBeing : Being
 {
     public MonsterStats monsterStats;
 
-    private Animator animator;
+    public Animator animator;
 
     public NavMeshAgent agent;
 
@@ -18,8 +18,12 @@ public class MonsterBeing : Being
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        playerManager = GameManager.instance.playerManager; 
+        playerManager = GameManager.instance.playerManager;
+
+        Initialize();
     }
+
+    public virtual void Initialize() {}
 
     // Update is called once per frame
     void Update()
@@ -27,24 +31,28 @@ public class MonsterBeing : Being
 
     }
 
+    public virtual void OnDamaged(float damage)
+    {
+        Debug.Log("Monster receives " + damage + " damage");
+
+        if(monsterStats.HasDamageReaction)
+        {
+            animator.SetTrigger("attacked");
+        }
+
+        currentHealth -= damage;
+        if(currentHealth <= 0)
+        {
+            animator.SetBool("dead", true);
+        }
+    }
+
     void OnTriggerEnter(Collider collider)
     {
         if(collider.isTrigger)
         {
             float damage = playerManager.activeForm.currentAttack;
-
-            Debug.Log("Monster receives " + damage + " damage");
-
-            if(true) // Check receives dmg
-            {
-                animator.SetTrigger("attacked");
-            }
-
-            currentHealth -= damage;
-            if(currentHealth <= 0)
-            {
-                animator.SetBool("dead", true);
-            }
+            OnDamaged(damage);            
         }
     }
 }

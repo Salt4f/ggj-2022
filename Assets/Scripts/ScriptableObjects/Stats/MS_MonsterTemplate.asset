@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MS_MonsterTemplate
   m_EditorClassIdentifier: 
   FieldOfView: 70
-  DistanceOfView: 20
+  DistanceOfView: 15
   DistanceOfAttack: 2
   MinWanderDistance: 2
   MaxWanderDistance: 10

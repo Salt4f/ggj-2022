@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ddaa9372d4026773bdd37c15474953f, type: 3}
-  m_Name: MS_Yeti
+  m_Script: {fileID: 11500000, guid: 569a5256fe45edd4689a68f514a76f37, type: 3}
+  m_Name: Yeti_3
   m_EditorClassIdentifier: 
-  FieldOfView: 90
-  DistanceOfView: 20
-  DistanceOfAttack: 2.4
-  MinWanderDistance: 2
-  MaxWanderDistance: 10
+  MaxHealth: 100
+  MaxArmor: 0
+  MovementSpeed: 3
+  AttackSpeed: 5
+  Attack: 60

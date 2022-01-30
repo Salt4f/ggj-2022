@@ -16,4 +16,4 @@ MonoBehaviour:
   MaxArmor: 500
   MovementSpeed: 5
   AttackSpeed: 1
-  Attack: 3
+  Attack: 7

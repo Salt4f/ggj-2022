@@ -1,14 +1,12 @@
 fileFormatVersion: 2
-guid: c3d67e6c35e0fef539460e14fda67d67
+guid: 322e7be1244af86a59aea11c7a5ccf7d
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: yeti_MATERIAL
-    second: {fileID: 2100000, guid: f0ca85d78b87f8b06b3947618bd58e44, type: 2}
+      74: -203655887218126122
+    second: mixamo.com
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

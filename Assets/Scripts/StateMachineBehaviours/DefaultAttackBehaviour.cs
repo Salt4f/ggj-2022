@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterTemplate_AttackBehaviour : StateMachineBehaviour
+public class DefaultAttackBehaviour : StateMachineBehaviour
 {
     MonsterBeing monster;
     private Transform player;

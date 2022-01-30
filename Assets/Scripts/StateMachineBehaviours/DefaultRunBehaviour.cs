@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MonsterTemplate_RunBehaviour : StateMachineBehaviour
+public class DefaultRunBehaviour : StateMachineBehaviour
 {
     MonsterBeing monster;
     private Transform player;
