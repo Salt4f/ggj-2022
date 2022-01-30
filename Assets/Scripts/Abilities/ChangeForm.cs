@@ -9,7 +9,7 @@ public class ChangeForm : ActiveAbility
     public override void ApplyEffect()
     {
         isActive = true;
-        playerManager.ChangeForm();
+        playerManager.ChangeForm(true);
         StartCooldown();
     }
 

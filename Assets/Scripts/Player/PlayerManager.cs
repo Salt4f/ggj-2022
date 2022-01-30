@@ -11,26 +11,38 @@ public class PlayerManager : MonoBehaviour
 
     public PlayerMovement movement;
 
+    ParticleSystem ps;
+    [SerializeField]
+    GameObject postProcess;
+
     private void Awake()
     {
         GameManager.instance.playerManager = this;
         movement = GetComponent<PlayerMovement>();
+        ps = GetComponent<ParticleSystem>();
         activeForm = ninja;
     }
 
-    public void ChangeForm()
+    private void Start()
+    {
+        ChangeForm(false);
+    }
+
+    public void ChangeForm(bool particleSystem)
     {
         float health = (float)activeForm.currentHealth / activeForm.stats.MaxHealth;
         float armor = (float)activeForm.currentArmor / activeForm.stats.MaxArmor;
-        //Trigger particle system
+        if (particleSystem) ps.Play();
         if (activeForm == samurai)
         {
             activeForm = ninja;
+            postProcess.SetActive(true);
             ninja.gameObject.SetActive(true);
             samurai.gameObject.SetActive(false);
         } else
         {
             activeForm = samurai;
+            postProcess.SetActive(false);
             ninja.gameObject.SetActive(false);
             samurai.gameObject.SetActive(true);
         }
