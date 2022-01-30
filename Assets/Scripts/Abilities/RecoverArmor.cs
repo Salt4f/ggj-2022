@@ -10,6 +10,7 @@ public class RecoverArmor : ActiveAbility
     {
         isActive = true;
         playerManager.activeForm.currentArmor += Mathf.Clamp(100, 0, playerManager.activeForm.stats.MaxArmor);
+        GameManager.instance.uiManager.UpdatePlayerArmor(playerManager.activeForm.currentArmor, playerManager.activeForm.stats.MaxArmor);
         StartCooldown();
     }
 

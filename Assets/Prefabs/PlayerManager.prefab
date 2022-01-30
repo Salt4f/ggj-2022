@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 8334049480575859852}
   - component: {fileID: 3236272858097978829}
   - component: {fileID: 252905349101906417}
+  - component: {fileID: 1283264928511647329}
   m_Layer: 0
   m_Name: Samurai
   m_TagString: Player
@@ -192,6 +193,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1283264928511647329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334049480575859861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc052f2939d09e4585bce5d9300d3dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 5
+  triggerName: 
 --- !u!1 &8334049481175258522
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +359,7 @@ MonoBehaviour:
   ninja: {fileID: 8334049481175258527}
   activeForm: {fileID: 0}
   movement: {fileID: 0}
+  alive: 0
   postProcess: {fileID: 2092797327}
 --- !u!54 &8334049481310733084
 Rigidbody:
@@ -5967,7 +5983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 56d70e7de86f75041bc611d2b25b7e52, type: 3}
       propertyPath: m_TagString
-      value: Weapon
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56d70e7de86f75041bc611d2b25b7e52, type: 3}
@@ -6062,7 +6078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
       propertyPath: m_TagString
-      value: Weapon
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: c8aa524e24439124ab7ba90d9799c703, type: 3}
       propertyPath: m_LocalPosition.x
