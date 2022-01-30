@@ -49,7 +49,7 @@ public class MonsterBeing : Being
 
     void OnTriggerEnter(Collider collider)
     {
-        if(collider.isTrigger)
+        if(collider.isTrigger && collider.tag == "Player")
         {
             int damage = playerManager.activeForm.currentAttack;
             OnDamaged(damage);            
