@@ -37,12 +37,14 @@ public class PlayerManager : MonoBehaviour
         {
             activeForm = ninja;
             postProcess.SetActive(true);
+            GameManager.instance.uiManager.ChangeFace(false);
             ninja.gameObject.SetActive(true);
             samurai.gameObject.SetActive(false);
         } else
         {
             activeForm = samurai;
             postProcess.SetActive(false);
+            GameManager.instance.uiManager.ChangeFace(true);
             ninja.gameObject.SetActive(false);
             samurai.gameObject.SetActive(true);
         }
