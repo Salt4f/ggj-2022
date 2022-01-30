@@ -54,6 +54,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         var dir = (camTarget.forward * moveInput.y + camTarget.right * moveInput.x); dir.y = 0; dir.Normalize();
+        
+        if(playerManager && playerManager.activeForm)
+        {
+            playerManager.activeForm.SetAnimationBool("running", dir.magnitude > 0);
+        }
         if (dir.magnitude == 0) return;
 
         rb.position += playerManager.samurai.stats.MovementSpeed * Time.fixedDeltaTime * dir;

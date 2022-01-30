@@ -11,6 +11,8 @@ public class PlayerManager : MonoBehaviour
 
     public PlayerMovement movement;
 
+    float armorTimer;
+
     ParticleSystem ps;
     [SerializeField]
     GameObject postProcess;
@@ -26,6 +28,22 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         ChangeForm(false);
+        armorTimer = 0;
+    }
+
+    private void Update()
+    {
+        if(activeForm.currentArmor < activeForm.stats.MaxArmor)
+        {
+            armorTimer += Time.deltaTime;
+            if(armorTimer >= 1.0f)
+            {
+                armorTimer -= 1.0f;
+                activeForm.currentArmor++;
+
+                GameManager.instance.uiManager.UpdatePlayerArmor(activeForm.currentArmor, activeForm.stats.MaxArmor);
+            }
+        }
     }
 
     public void ChangeForm(bool particleSystem)
@@ -57,9 +75,30 @@ public class PlayerManager : MonoBehaviour
     {
         if(collider.isTrigger)
         {
-            float damage = collider.gameObject.GetComponentInParent<MonsterBeing>().currentAttack;
+            int damage = collider.gameObject.GetComponentInParent<MonsterBeing>().currentAttack;
 
             Debug.Log("Player receives " + damage + " damage");
+
+            if(activeForm.currentArmor > 0)
+            {
+                int toreduce = Mathf.Min(activeForm.currentArmor, damage);
+                activeForm.currentArmor -= toreduce;
+                damage -= toreduce;
+            }
+
+            if(damage > 0)
+            {
+                activeForm.currentHealth -= damage;
+
+                if(activeForm.currentHealth <= 0)
+                {
+                    activeForm.SetAnimatorTrigger("die");
+                }
+            }
+
+            GameManager.instance.uiManager.UpdatePlayerHealth(activeForm.currentHealth, activeForm.stats.MaxHealth);
+            GameManager.instance.uiManager.UpdatePlayerArmor(activeForm.currentArmor, activeForm.stats.MaxArmor);
+
         }
     }
 }

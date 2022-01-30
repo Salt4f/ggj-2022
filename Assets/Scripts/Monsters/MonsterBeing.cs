@@ -11,7 +11,7 @@ public class MonsterBeing : Being
 
     public NavMeshAgent agent;
 
-    PlayerManager playerManager;
+    public PlayerManager playerManager;
 
     // Start is called before the first frame update
     void Start()
