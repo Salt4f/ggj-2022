@@ -20,6 +20,8 @@ public class PlayerManager : MonoBehaviour
 
     public void ChangeForm()
     {
+        float health = (float)activeForm.currentHealth / activeForm.stats.MaxHealth;
+        float armor = (float)activeForm.currentArmor / activeForm.stats.MaxArmor;
         //Trigger particle system
         if (activeForm == samurai)
         {
@@ -32,5 +34,8 @@ public class PlayerManager : MonoBehaviour
             ninja.gameObject.SetActive(false);
             samurai.gameObject.SetActive(true);
         }
+        activeForm.ResetBeing(health, armor);
+        GameManager.instance.uiManager.UpdatePlayerArmor(activeForm.currentArmor, activeForm.stats.MaxArmor);
+        GameManager.instance.uiManager.UpdatePlayerHealth(activeForm.currentHealth, activeForm.stats.MaxHealth);
     }
 }

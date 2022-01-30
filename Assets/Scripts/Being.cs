@@ -6,9 +6,9 @@ public class Being : MonoBehaviour
 {
     public Stats stats;
 
-    public float currentHealth;
-    public float currentArmor;
-    public float currentAttack;
+    public int currentHealth;
+    public int currentArmor;
+    public int currentAttack;
 
     Animator anim;
 
@@ -19,6 +19,19 @@ public class Being : MonoBehaviour
         currentArmor = stats.MaxArmor;
 
         anim = GetComponent<Animator>();
+    }
+
+    public void ResetBeing(float? healthPercentage = null, float? armorPercentage = null)
+    {
+        if (healthPercentage != null)
+        {
+            currentHealth = Mathf.CeilToInt(healthPercentage.Value * stats.MaxHealth);
+        } else { currentHealth = stats.MaxHealth; }
+        if (armorPercentage != null)
+        {
+            currentArmor = Mathf.CeilToInt(armorPercentage.Value * stats.MaxArmor);
+        } else { currentArmor = stats.MaxArmor; }
+        currentAttack = stats.Attack;
     }
 
     public void SetAnimatorTrigger(string triggerName)

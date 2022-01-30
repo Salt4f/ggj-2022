@@ -2495,6 +2495,7 @@ GameObject:
   - component: {fileID: 1326790087}
   - component: {fileID: 1326790088}
   - component: {fileID: 1326790090}
+  - component: {fileID: 1326790091}
   - component: {fileID: 1326790089}
   m_Layer: 0
   m_Name: Ninja
@@ -2645,6 +2646,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 1
   triggerName: attack
+--- !u!114 &1326790091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326790082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ff71a98b12b694fb398f7e8f2e47a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 5
+  triggerName: 
 --- !u!1 &1473934544
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,6 +2822,34 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f56ff99b-06a7-4311-9900-d5abb03380f3
     m_ActionName: Player/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1890540755}
+        m_TargetAssemblyTypeName: ActiveAbility, Assembly-CSharp
+        m_MethodName: OnInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1326790091}
+        m_TargetAssemblyTypeName: ActiveAbility, Assembly-CSharp
+        m_MethodName: OnInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cab58068-f3d2-46ea-87f9-85b064e0dc0b
+    m_ActionName: Player/ChangeForm[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -3348,8 +3391,8 @@ GameObject:
   - component: {fileID: 1890540752}
   - component: {fileID: 1890540751}
   - component: {fileID: 1890540754}
-  - component: {fileID: 1890540755}
   - component: {fileID: 1890540756}
+  - component: {fileID: 1890540755}
   - component: {fileID: 1890540757}
   m_Layer: 0
   m_Name: Samurai
@@ -3461,12 +3504,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1890540749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8449f072b0f8d414daff6b17aadfb663, type: 3}
+  m_Script: {fileID: 11500000, guid: 93ff71a98b12b694fb398f7e8f2e47a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 2
+  cooldown: 5
   triggerName: 
-  dashSpeed: 15
 --- !u!114 &1890540756
 MonoBehaviour:
   m_ObjectHideFlags: 0
