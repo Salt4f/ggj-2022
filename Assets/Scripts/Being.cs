@@ -18,7 +18,7 @@ public class Being : MonoBehaviour
         currentHealth = stats.MaxHealth;
         currentArmor = stats.MaxArmor;
 
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     public void ResetBeing(float? healthPercentage = null, float? armorPercentage = null)
@@ -37,5 +37,10 @@ public class Being : MonoBehaviour
     public void SetAnimatorTrigger(string triggerName)
     {
         anim.SetTrigger(triggerName);
+    }
+
+    public void SetAnimationBool(string boolValue, bool value)
+    {
+        anim.SetBool(boolValue, value);
     }
 }

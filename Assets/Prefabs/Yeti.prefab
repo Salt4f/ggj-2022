@@ -769,7 +769,7 @@ CapsuleCollider:
   m_Radius: 4
   m_Height: 16
   m_Direction: 1
-  m_Center: {x: 0, y: 7, z: 0}
+  m_Center: {x: 0, y: 7.7, z: 0}
 --- !u!114 &7468817719188657650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,6 +789,7 @@ MonoBehaviour:
   monsterStats: {fileID: 0}
   animator: {fileID: 0}
   agent: {fileID: 0}
+  playerManager: {fileID: 0}
   stages:
   - 1
   - 0.7

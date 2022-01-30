@@ -35,17 +35,19 @@ public class BossBeing : MonsterBeing
         }
         else
         {
-            if(stages.Count > currentStage+1)
+            while((stages.Count > currentStage+1) && ((float)currentHealth/(float)stats.MaxHealth <= stages[currentStage+1]))
             {
-                while(stages.Count > currentStage+1 && currentHealth/stats.MaxHealth <= stages[currentStage+1])
-                {
-                    currentStage++;
-                    stats = statsPerStage[currentStage];
-                    monsterStats = monsterStatsPerStage[currentStage];
-                    animator.SetInteger("stage", currentStage);
-                }
+                Debug.Log(currentHealth/stats.MaxHealth);
+                currentStage++;
+                stats = statsPerStage[currentStage];
+                monsterStats = monsterStatsPerStage[currentStage];
+                animator.SetInteger("stage", currentStage);
             }
         }
+
+        Vector3 direction = (playerManager.activeForm.transform.position.XZPlane() - animator.transform.position.XZPlane()).normalized;
+        animator.transform.rotation = Quaternion.LookRotation(direction, animator.transform.up);
+        animator.SetBool("inSight", true);
 
     }
 }
