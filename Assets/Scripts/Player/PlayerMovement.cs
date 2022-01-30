@@ -53,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!playerManager.alive) return;
+        
         var dir = (camTarget.forward * moveInput.y + camTarget.right * moveInput.x); dir.y = 0; dir.Normalize();
         
         if(playerManager && playerManager.activeForm)

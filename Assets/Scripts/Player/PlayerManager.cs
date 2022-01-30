@@ -13,6 +13,8 @@ public class PlayerManager : MonoBehaviour
 
     float armorTimer;
 
+    public bool alive;
+
     ParticleSystem ps;
     [SerializeField]
     GameObject postProcess;
@@ -29,11 +31,12 @@ public class PlayerManager : MonoBehaviour
     {
         ChangeForm(false);
         armorTimer = 0;
+        alive = true;
     }
 
     private void Update()
     {
-        if(activeForm.currentArmor < activeForm.stats.MaxArmor)
+        if(alive && activeForm.currentArmor < activeForm.stats.MaxArmor)
         {
             armorTimer += Time.deltaTime;
             if(armorTimer >= 1.0f)
@@ -73,7 +76,7 @@ public class PlayerManager : MonoBehaviour
 
     public void OnTriggerEnter(Collider collider)
     {
-        if(collider.isTrigger)
+        if(alive && collider.isTrigger)
         {
             int damage = collider.gameObject.GetComponentInParent<MonsterBeing>().currentAttack;
 
@@ -93,6 +96,7 @@ public class PlayerManager : MonoBehaviour
                 if(activeForm.currentHealth <= 0)
                 {
                     activeForm.SetAnimatorTrigger("die");
+                    alive = false;
                 }
             }
 
